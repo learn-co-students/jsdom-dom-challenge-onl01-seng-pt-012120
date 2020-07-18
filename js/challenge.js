@@ -1,3 +1,4 @@
+// DECLARATIONS + ASSIGNMENTS =========================
 const counter = document.getElementById('counter');
 const pauseButton = document.getElementById('pause');
 const plus = document.getElementById('plus');
@@ -9,11 +10,13 @@ const commentField = document.getElementById('comment-input');
 const commentDiv = document.getElementById('list');
 const likesList = document.getElementsByClassName('likes')[0];
 
-let timeStamp;
-let likeCount = 0;
+// let timestamp;
+// let likeCount = 0;
 let counterStatus = 1;
 
 let intervalID;
+
+// FUNCTIONS =========================
 
 function incrementCounter() {
   let seconds = Number(counter.innerText)
@@ -76,17 +79,21 @@ function postComment() {
   }
 }
 
-function like() {
-  currentCounter = counter.innerText
-  let newLike = document.createElement('li')
-
-  if (likeCount > 0 && currentCounter == counter.innerText) {
-    likeCount++
+function like(timestamp) {
+  // likeCount = 1
+  if (document.getElementById(timestamp)) {
+    num = Number(document.getElementById(timestamp).innerText.split(" ")[4])
+    num++
+    newString = `${timestamp} has been liked ${num} times`
+    document.getElementById(timestamp).innerText = newString
   } else {
-    newLike.innerText = `${currentCounter} has been like ${likeCount} times`
+    let newLike = document.createElement('li')
+    newLike.id = timestamp
+    newLike.innerText = `${timestamp} has been liked 1 time`
     likesList.appendChild(newLike)
-    likeCount = 0
   }
+  
+  
 
   // 1. hit the like button
   // 2. if i hit the like button more than once during interval
@@ -94,6 +101,8 @@ function like() {
   // 3. increment the likes
   // 4. once clock changes : append like to ul
 }
+
+// EVENT LISTENERS =========================
 
 document.addEventListener("DOMContentLoaded", function() {
   intervalID = window.setInterval(incrementCounter, 1000);
@@ -103,11 +112,11 @@ plus.addEventListener('click', incrementCounter)
 minus.addEventListener('click', decrementCounter)
 pauseButton.addEventListener('click', toggleCounter)
 heart.addEventListener('click', function() {
-  like()
+  // timestamp = counter.innerText
+  like(counter.innerText)
 })
 submit.addEventListener('click', function(event) {
   event.preventDefault()
   postComment()
 })
 
-// <li> 12 has been liked 3 times </li>
