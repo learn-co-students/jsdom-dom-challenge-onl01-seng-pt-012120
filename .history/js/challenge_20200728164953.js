@@ -25,8 +25,5 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     // next need to add a comment for the heart click on the number 
     // every time it clicks on that number it changes the number of clicks in that sentence
-    heart.addEventListener('click', (e)=>{
-        
-    })
 
 });

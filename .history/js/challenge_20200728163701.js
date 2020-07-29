@@ -10,23 +10,6 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     // Must increase and decrease counter with plus and minus presses should use an event listener for each of these items
     minus.addEventListener('click', (e)=>{
-        let num = parseInt(c.innerHTML);
-        if (num>0) {
-            num--
-        }
-        c.innerHTML = num
-    });
-
-    plus.addEventListener('click', (e) => {
-        let num = parseInt(c.innerHTML);
-        num++
-        c.innerHTML = num
-    });
-
-    // next need to add a comment for the heart click on the number 
-    // every time it clicks on that number it changes the number of clicks in that sentence
-    heart.addEventListener('click', (e)=>{
-        
+        debugger;
     })
-
 });
