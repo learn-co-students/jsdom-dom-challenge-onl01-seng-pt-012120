@@ -52,14 +52,16 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     heart.addEventListener('click', (e)=>{
         let likedNum = parseInt(c.innerHTML);
-            let ll = document.createElement('li');
-            let s = document.createElement('span');
-            s.innerHTML = "1"
-            ll.id = likedNum;
-            ll.innerText = likedNum + ' has been liked ' + s + 'time.';
-            likesList.appendChild(ll);
+        let ll = document.getElementById(likedNum);
+        if(ll){
             debugger;
-        })
+        } else {
+            let ll = document.createElement('li');
+            ll.id = likedNum;
+            ll.innerText = likedNum + ' has been liked <span> 1 </span> time.';
+            likesList.appendChild(ll);
+        }
+    })
     document
 
     // pause button

@@ -45,23 +45,25 @@ document.addEventListener('DOMContentLoaded', () =>{
     // heart button
     const heart = document.getElementById("heart");
     // list element for listing likes
-    const likesList = document.querySelector('.likes')
+    const likesList = document.getElementsByClassName('likes')
     // need to check the list to see if there is a ??? to determine if the # has already been liked
     //if already liked then take the number of likes and increase it by one
     //else create a new element in the array of likes
 
     heart.addEventListener('click', (e)=>{
         let likedNum = parseInt(c.innerHTML);
-            let ll = document.createElement('li');
-            let s = document.createElement('span');
-            s.innerHTML = "1"
-            ll.id = likedNum;
-            ll.innerText = likedNum + ' has been liked ' + s + 'time.';
-            likesList.appendChild(ll);
+        if (ll = likesList.querySelector("#${likedNum}")) {
             debugger;
-        })
-    document
+        } else {
+            debugger;
+            let ll = document.createElement(li);
+            ll.id = likedNum;
+            ll.innerText = "${likedNum} has<span> 1 </span> likes."
+            likesList.appendChild(ll)
+        }
+    })
 
+    
     // pause button
     const pause = document.getElementById("pause");
    // if timer is on then need to change it to off stop the timer element from running and change the web page elements to not be working
