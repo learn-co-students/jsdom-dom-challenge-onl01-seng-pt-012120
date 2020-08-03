@@ -102,8 +102,8 @@ document.addEventListener('DOMContentLoaded', () =>{
         let comList = document.getElementsByClassName('comments')[0];
         let newComment = document.createElement('li');
         newComment.innerText = comment.value;
+        debugger;
         comList.appendChild(newComment);
-        // debugger;
         e.target.reset();
     })
 

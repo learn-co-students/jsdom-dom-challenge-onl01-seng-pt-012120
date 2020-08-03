@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', () =>{
         c.innerHTML = num
     };
     // to interact with the timer and start the timer
-    let interval = timer();
+    const interval = timer();
     // timer has started running this is for toggling the pause button currently the timer is 'running' 
     // allow for a true~false question to determine what to do with the timer if run pause other wise run
-    let timing = !0;
+    const timing = true;
     
     
     // plus button
@@ -53,14 +53,18 @@ document.addEventListener('DOMContentLoaded', () =>{
     heart.addEventListener('click', (e)=>{
         let likedNum = parseInt(c.innerHTML);
         if(ll = document.getElementById(likedNum)){
-            let span = ll.getElementsByTagName('span')[0];
-            let currentLikeCount = parseInt(span.innerHTML) + 1;
-            ll.querySelector("span").innerText = currentLikeCount;
+            debugger;
+            let currentLikeCount = parseInt(ll.getElementsByTagName('span').innerHTML) + 1
+            ll.querySelector("span").innerHTML = "${currentLikeCount}";
+            ll.innerHTML += "s";
         } else {
             let ll = document.createElement('li');
+            let s = document.createElement('span');
+            s.innerHTML = "1";
             ll.id = likedNum;
             ll.innerText = likedNum + ' has been liked ';
-            ll.innerHTML += '<span> 1</span> time';
+            ll.appendChild(s);
+            ll.innerText += '<span> 1</span> time';
             likesList.appendChild(ll);
         }
     });
@@ -70,41 +74,17 @@ document.addEventListener('DOMContentLoaded', () =>{
     const pause = document.getElementById("pause");
    // if timer is on then need to change it to off stop the timer element from running and change the web page elements to not be working
    //else if timer is not running need to mark as running restart the timer and unblock elements of the webpage 
-   pause.addEventListener('click', (e) => {
-       if (timing){ 
-           timing=!1;
-           clearInterval(interval);
-           pause.innerText='resume'; 
-        }else{ 
-            timing=!0;
-            interval = timer();
-            pause.innerText='pause';
-        };
-        let buttons = document.getElementsByTagName('button');
-        buttons.heart.disabled = !timing;
-        buttons.minus.disabled = !timing;
-        buttons.plus.disabled = !timing;
-    });
-
-
+    
     // comment form
     const cf = document.getElementById("comment-form")
+    // comment field that contains the text of the comment
+    const comment = document.getElementById("comment-input")
+    // comment list element 
+    const comList = document.getElementsByClassName('comments')
     // on submit need to 
     // ignore submit button default action
     // add comment to the comment list
     // clear comment form
-    cf.addEventListener('submit',
-    function (e){
-        e.preventDefault();
-        // comment field that contains the text of the comment
-        let comment = document.getElementById("comment-input");
-        // comment list element 
-        let comList = document.getElementsByClassName('comments')[0];
-        let newComment = document.createElement('li');
-        newComment.innerText = comment.value;
-        comList.appendChild(newComment);
-        // debugger;
-        e.target.reset();
-    })
+
 
 });

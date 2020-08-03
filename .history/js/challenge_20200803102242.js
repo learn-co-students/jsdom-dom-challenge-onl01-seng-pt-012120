@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', () =>{
         c.innerHTML = num
     };
     // to interact with the timer and start the timer
-    let interval = timer();
+    const interval = timer();
     // timer has started running this is for toggling the pause button currently the timer is 'running' 
     // allow for a true~false question to determine what to do with the timer if run pause other wise run
-    let timing = !0;
+    const timing = true;
     
     
     // plus button
@@ -72,39 +72,24 @@ document.addEventListener('DOMContentLoaded', () =>{
    //else if timer is not running need to mark as running restart the timer and unblock elements of the webpage 
    pause.addEventListener('click', (e) => {
        if (timing){ 
-           timing=!1;
-           clearInterval(interval);
-           pause.innerText='resume'; 
+            timing=!1;
+            this.innerText='Resume'; 
         }else{ 
             timing=!0;
-            interval = timer();
-            pause.innerText='pause';
-        };
-        let buttons = document.getElementsByTagName('button');
-        buttons.heart.disabled = !timing;
-        buttons.minus.disabled = !timing;
-        buttons.plus.disabled = !timing;
+            this.innerText='Pause';
+        }
+       debugger;
     });
-
-
     // comment form
     const cf = document.getElementById("comment-form")
+    // comment field that contains the text of the comment
+    const comment = document.getElementById("comment-input")
+    // comment list element 
+    const comList = document.getElementsByClassName('comments')
     // on submit need to 
     // ignore submit button default action
     // add comment to the comment list
     // clear comment form
-    cf.addEventListener('submit',
-    function (e){
-        e.preventDefault();
-        // comment field that contains the text of the comment
-        let comment = document.getElementById("comment-input");
-        // comment list element 
-        let comList = document.getElementsByClassName('comments')[0];
-        let newComment = document.createElement('li');
-        newComment.innerText = comment.value;
-        comList.appendChild(newComment);
-        // debugger;
-        e.target.reset();
-    })
+
 
 });

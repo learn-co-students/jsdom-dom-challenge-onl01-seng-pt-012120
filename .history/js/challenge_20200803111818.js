@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         let newComment = document.createElement('li');
         newComment.innerText = comment.value;
         comList.appendChild(newComment);
-        // debugger;
+        debugger;
         e.target.reset();
     })
 

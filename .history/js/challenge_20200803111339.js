@@ -96,14 +96,14 @@ document.addEventListener('DOMContentLoaded', () =>{
     cf.addEventListener('submit',
     function (e){
         e.preventDefault();
+        debugger;
         // comment field that contains the text of the comment
         let comment = document.getElementById("comment-input");
         // comment list element 
-        let comList = document.getElementsByClassName('comments')[0];
+        let comList = document.getElementsByClassName('comments');
         let newComment = document.createElement('li');
-        newComment.innerText = comment.value;
+        newComment.innerText = comment.innerText;
         comList.appendChild(newComment);
-        // debugger;
         e.target.reset();
     })
 

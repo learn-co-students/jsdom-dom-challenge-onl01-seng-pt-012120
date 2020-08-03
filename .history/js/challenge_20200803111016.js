@@ -89,6 +89,10 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     // comment form
     const cf = document.getElementById("comment-form")
+    // comment field that contains the text of the comment
+    const comment = document.getElementById("comment-input")
+    // comment list element 
+    const comList = document.getElementsByClassName('comments')
     // on submit need to 
     // ignore submit button default action
     // add comment to the comment list
@@ -96,14 +100,9 @@ document.addEventListener('DOMContentLoaded', () =>{
     cf.addEventListener('submit',
     function (e){
         e.preventDefault();
-        // comment field that contains the text of the comment
-        let comment = document.getElementById("comment-input");
-        // comment list element 
-        let comList = document.getElementsByClassName('comments')[0];
         let newComment = document.createElement('li');
-        newComment.innerText = comment.value;
+        newComment.innerText = comment.innerText;
         comList.appendChild(newComment);
-        // debugger;
         e.target.reset();
     })
 
