@@ -2,41 +2,42 @@ document.addEventListener("DOMContentLoaded", () => {
     
     function incrementCounter() {
         const count = document.getElementById('counter')
-        let num = parseInt(count.innerText) + 1
+        const num = parseInt(count.innerText) + 1
         count.innerText = num.toString()
     }
 
     function decrementCounter() {
         const countdown = document.getElementById('counter')
-        let newNum = parseInt(countdown.innerText) - 1
+        const newNum = parseInt(countdown.innerText) - 1
         countdown.innerText = newNum.toString()
     }
 
     let count = window.setInterval(incrementCounter, 2000)
+    // declared count with let as it worked when calling it in the pause event listener 
 
-    let plus = document.getElementById('plus')
+    const plus = document.getElementById('plus')
     plus.addEventListener('click', () => {
         incrementCounter()
     })
 
-    let minus = document.getElementById('minus')
+    const minus = document.getElementById('minus')
     minus.addEventListener('click', () => {
         decrementCounter()
     })
 
-    let submitButton = document.querySelector('#submit')
-    let commentList = document.querySelector('#list')
+    const submitButton = document.querySelector('#submit')
+    const commentList = document.querySelector('#list')
     submitButton.addEventListener('click', (e) => {
         e.preventDefault()
-        let comment = document.querySelector('#comment-form > input[type=text]').value
+        const comment = document.querySelector('#comment-form > input[type=text]').value
         commentList.innerHTML += `<li>${comment}</li>`
         document.querySelector('#comment-form').reset()
     })
 
-    let heart = document.getElementById('heart')
-    let likes = document.querySelector('.likes')
+    const heart = document.getElementById('heart')
+    const likes = document.querySelector('.likes')
     heart.addEventListener('click', (e) => {
-        let obj = document.getElementById(`${counter.innerText}`)
+        const obj = document.getElementById(`${counter.innerText}`)
         obj ? obj.children[0].innerText++ : 
         likes.innerHTML += `<li id=${counter.innerText} > ${counter.innerText} is liked <span id=${counter.innerText}>1</span> times.</li>`
     })
@@ -54,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         else {
             count = setInterval(() => {
                 counter.innerText++
-            }, 1000)
+            }, 2000)
             pause.innerText = "pause"
 
             plus.disabled = false
